@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/futbol-regular.svg" >
+    <script src="https://kit.fontawesome.com/28e6bce35c.js" crossorigin="anonymous"></script>
+
+    <title>FantaStats</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script>
+      
+    </script>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fa-regular fa-futbol"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">FantaStats<sup>2.0</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+     
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+         
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item active">
+                <a class="nav-link" href="querys.html">
+                    <i class="fas fa-fw fa-clipboard-question"></i>
+                    <span>Querys</span></a>
+            </li>
+
+           
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Database</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="stats.html">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Stats Players</span></a>
+        </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <form class="form-inline">
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </form>
+
+                    <h1 class="h3 mb-2 text-gray-800">Querys</h1>
+                       
+
+                    
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <p class="mb-4">In this section it is possible to carry out CRUD operations</p>
+
+                    <!-- Page Heading -->
+
+
+                     
+
+
+                    <div class="card shadow mb-4">
+                        
+                        <div class="card-body">
+                    
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-2 col-lg-2">
+                    
+                            <div id="btn_cerca" class="btnquery btnqueryactive" onclick="cercaFunction()">Cerca</div>
+                            <div id="btn_inserisci" class="btnquery" onclick="inserisciFunction()">Inserisci</div>
+                            <div id="btn_modifica" class="btnquery" onclick="modificaFunction()">Modifica</div>
+                            
+                        </div>
+
+              
+                        <div class="col-xl-10 col-lg-10" style="">
+
+                            <div id="query_cerca">
+                                <div style="display: flex;
+                                justify-content: center; /* Centra orizzontalmente */
+                                align-items: center;    /* Centra verticalmente */
+                                margin: 0;">
+                                    <select id="player" name="playerlist" class="custom-select" form="playersform" style="width: auto; margin-top: 5px;">
+                                    
+                                    </select>
+                                </div>
+
+                                    
+                                        <div class="card-body">
+                                            <div class="row">
+                                            <div class="col-xl-4 col-lg-12">
+                                            <div class="text-center">
+                                                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;float: left;"
+                                                    id="foto_top_scorer" >
+                                            </div>
+                                        </div>
+
+                                            
+                                        <div class="col-xl-4 col-lg-12">
+                                            <div style="margin-top: 4rem;">
+                                                <!--<h3 style="font-weight: bold" id="cognome"></h3> -->
+                                                <h6 style="font-weight: bold" id="squadra_top_scorer"></h6>
+                                                <h6 style="font-weight: bold" id="giocate_top_scorer"></h6>
+                                                <h6 style="font-weight: bold" id="goal_top_scorer"></h6>
+                                                <h6 style="font-weight: bold" id="rigori_calciati_top_scorer"></h6>
+                                                <h6 style="font-weight: bold" id="rigori_segnati_top_scorer"></h6>
+                                                <h6 style="font-weight: bold" id="assist_top_scorer"></h6>
+                                                
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xl-4 col-lg-12">
+                                            <div style="margin-top: 4rem;">
+                                          
+                                            <h6 style="font-weight: bold" id="media"></h6>
+                                            <h6 style="font-weight: bold" id="fantamedia"></h6>
+                                            <h6 style="font-weight: bold" id="quotazioneIn"></h6>
+                                            <h6 style="font-weight: bold" id="quotazioneAtt"></h6>
+                                            <h6 style="font-weight: bold" id="ammonizioni_top_scorer"></h6>
+                                                <h6 style="font-weight: bold" id="espulsioni_top_scorer"></h6>
+                                            </div>
+                                        </div>
+                                     
+                                            
+                                        </div>
+                                    </div>
+                            </div>
+                            <div id="query_inserisci" style="display: none;">    
+                                <div style="text-align: center; margin-top: 2rem;">
+                                    <h2>Insert new football player</h2>
+                                </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                            <div class="col-xl-4 col-lg-12">
+                
+                                            <div class="text-center">
+                                                <div style="margin-top: 2rem;">
+                                                    <form id="form" class="form" novalidate>
+                                                    <div class="input-group flex-nowrap">
+                                                        <span class="input-group-text" id="addon-wrapping">Nome</span>
+                                                        <input type="text" class="form-control" placeholder="" id="nome_add" aria-describedby="addon-wrapping" required>
+                                                      </div>
+                                                    <br>
+                                                    <div class="input-group flex-nowrap">
+                                                        <span class="input-group-text" id="addon-wrapping">Cognome</span>
+                                                        <input type="text" class="form-control" placeholder="" id="cognome_add" aria-describedby="addon-wrapping" required>
+                                                      </div>
+                                                      <br>
+                                                      <div class="input-group flex-nowrap">
+                                                        <span class="input-group-text" id="addon-wrapping">Nazionalità</span>
+                                                        <input type="text" class="form-control" placeholder="" id="nazionalita_add" aria-describedby="addon-wrapping" required>
+                                                      </div>
+                                                    <br>
+                                                    <div class="input-group flex-nowrap">
+                                                        <span class="input-group-text" id="addon-wrapping">Anno Nascita</span>
+                                                        <input type="text" class="form-control" placeholder="aa/mm/gg" id="annonascita_add" aria-describedby="addon-wrapping" required>
+                                                      </div>
+                                                      <br>
+                                                      <div class="input-group flex-nowrap">
+                                                        <span class="input-group-text" id="addon-wrapping">Squadra</span>
+                                                        <input type="text" class="form-control" placeholder="" id="squadra_add" aria-describedby="addon-wrapping" required>
+                                                      </div>
+                                                    <br>
+                                                    <div class="input-group flex-nowrap">
+                                                        <span class="input-group-text" id="addon-wrapping">Piede</span>
+                                                        <input type="text" class="form-control" placeholder="destro/sinistro/ambidestro" id="piede_add" aria-describedby="addon-wrapping" required>
+                                                      </div>
+                                                    <br>
+                                                    <div class="input-group flex-nowrap">
+                                                        <span class="input-group-text" id="addon-wrapping">Ruolo</span>
+                                                        <input type="text" class="form-control" placeholder="P/D/C/A" id="ruolo_add" aria-describedby="addon-wrapping" required>
+                                                      </div>
+                                                    <br>
+                                                    <div class="input-group flex-nowrap">
+                                                        <span class="input-group-text" id="addon-wrapping">Ruoli mantra</span>
+                                                        <input type="text" class="form-control" placeholder="Por/Dc/Ds/M/E/C/Pc" id="ruolimantra_add" aria-describedby="addon-wrapping" required>
+                                                      </div>
+                                                    </form>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                        <div class="col-xl-4 col-lg-12">
+                                            <div style="margin-top: 2rem;">
+                                                <form id="form2" class="form" novalidate>
+                                                  <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Partite Giocate</span>
+                                                    <input type="number" class="form-control" value="0" placeholder="" id="giocate_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                  <br>
+                                                  <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Quotazione attuale</span>
+                                                    <input type="number" class="form-control" placeholder="" id="quotatt_add" aria-describedby="addon-wrapping" required>
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Quotazione iniziale</span>
+                                                    <input type="number" class="form-control" placeholder="" id="quotiniz_add" aria-describedby="addon-wrapping" required>
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Media voto</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="voto_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Media fantavoto</span>
+                                                    <input type="number" class="form-control" value="0" placeholder="" id="fantamedia_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xl-4 col-lg-12">
+                                            <div style="margin-top: 2rem;">
+      
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Goal fatti</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="goal_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Goal subiti</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="goalsubiti_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Rigori parati</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="rigoriparati_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Rigori calciati</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="rigoricalciati_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Rigori segnati</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="rigorisegnati_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Rigori sbagliati</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="rigorisbagliati_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                  <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Assist</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="assist_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                  <br>
+                                                  <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Ammonizioni</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="ammonizioni_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Espulsioni</span>
+                                                    <input type="number" class="form-control" value="0"  placeholder="" id="espulsioni_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Autogoal</span>
+                                                    <input type="number" class="form-control" value="0" placeholder="" id="autogoal_add" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                
+                            
+                                            </div>
+                                        </div>
+
+                                     
+                                     
+                                            
+                                        </div>
+                                        <div class="row" style="margin-top: 50px;margin-bottom: 50px;text-align: center;">
+                        
+                            
+                                            <div class="col-xl-4 col-lg-12">
+                                                
+                                            </div>
+                                            <div class="col-xl-4 col-lg-12">
+                                                <button type="button" style="width: 100%;margin-bottom: 10px;" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop4">Aggiungi</button>
+                                                <button type="button" style="width: 100%;" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">Cancella</button>
+
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Conferma aggiunta</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        Sei sicuro che vuoi continuare?<br> Con la seguente opzione rispristini i valori iniziati<br> perdendo le modifiche effettuate.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annulla</button>
+                                                        <button type="button" class="btn btn-primary"onclick="addPlayer()" data-bs-dismiss="modal">Aggiungi</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Cancella sezione</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        Sei sicuro che vuoi continuare?<br> Con la seguente opzione cancelli tutti i <br>valori precedentemente inseriti
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annulla</button>
+                                                        <button type="button" class="btn btn-primary"onclick="canc()" data-bs-dismiss="modal">Cancella</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-xl-4 col-lg-12"></div>  </div>
+                                    </div>
+                                   
+                            </div>
+
+                            <div id="query_modifica" style="display: none;">
+                                <div style="display: flex;
+                                justify-content: center; /* Centra orizzontalmente */
+                                align-items: center;    /* Centra verticalmente */
+                                margin: 0;">
+                                    <select id="player_modifica" name="playerlist" class="custom-select" form="playersform" style="width: auto; margin-top: 5px;">
+                                   
+                                    </select>
+                                </div>
+
+                                    
+                                        <div class="card-body">
+                                            <div class="row">
+                                            <div class="col-xl-4 col-lg-12">
+                
+                                            <div class="text-center">
+                                                <div style="margin-top: 4rem;">
+                                                <div class="input-group flex-nowrap">
+                                                    
+                                                    <span id="cognome_mod" hidden></span>
+                                                    <h4 style="text-align: center; width: 100%;" id="nome_mod2"></h4>
+                
+                                                  </div>
+                                                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;"
+                                                    id="foto_mod" >
+
+                                                    <button type="button" style="display: none; width: 100%;margin-bottom: 10px;" id="btn_update" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Salva modifiche</button>
+                                                    <button type="button" style="display: none;width: 100%;margin-bottom: 10px;" id="btn_cancel" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" >Ripristina modifiche</button>
+                                                    <button type="button" style="display: none; width: 100%;" id="btn_delete" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" >Elimina Giocatore</button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Conferma modifiche</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                Sei sicuro che vuoi continuare?<br> Con la seguente modifica effettuerai un aggiornamento <br>dei dati presenti nel database.
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annulla</button>
+                                                                <button type="button" class="btn btn-primary" onclick="updatePlayer()" id="update_btn" data-bs-dismiss="modal">Salva</button>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Conferma eliminazione</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                Sei sicuro che vuoi continuare?<br> Con la seguente modifica effettuerai una cancellazione <br>permanente dei dati presenti nel database.
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annulla</button>
+                                                                <button type="button" class="btn btn-primary" onclick="deletePlayer()" data-bs-dismiss="modal">Elimina</button>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Conferma ripristino</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                Sei sicuro che vuoi continuare?<br> Con la seguente opzione rispristini i valori iniziati<br> perdendo le modifiche effettuate.
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annulla</button>
+                                                                <button type="button" class="btn btn-primary" onclick="ripristinaPlayer()" data-bs-dismiss="modal">Ripristina</button>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+
+                                                                                <!-- Modal -->
+                                            <div class="modal fade" id="staticBackdrop6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Perfect!</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                    La tua operazione è andata a buon fine!
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" onclick="location.reload()" data-bs-dismiss="modal">Continua</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                                        
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                            
+                                        <div class="col-xl-4 col-lg-12">
+                                            <div style="margin-top: 4rem;">
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Squadra</span>
+                                                    <input type="text" class="form-control" placeholder="" id="squadra_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Ruolo</span>
+                                                    <input type="text" class="form-control" placeholder="" id="ruolo_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Ruoli mantra</span>
+                                                    <input type="text" class="form-control" placeholder="" id="ruolimantra_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Piede</span>
+                                                    <input type="text" class="form-control" placeholder="" id="piede_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Nazionalità</span>
+                                                    <input type="text" class="form-control" placeholder="" id="nazionalita_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Anno Nascita</span>
+                                                    <input type="text" class="form-control" placeholder="" id="annonascita_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                  <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Partite Giocate</span>
+                                                    <input type="number" class="form-control" placeholder="" id="giocate_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                  <br>
+                                                  <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Quotazione attuale</span>
+                                                    <input type="number" class="form-control" placeholder="" id="quotatt_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Quotazione iniziale</span>
+                                                    <input type="number" class="form-control" placeholder="" id="quotiniz_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Media voto</span>
+                                                    <input type="number" class="form-control" placeholder="" id="voto_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Media fantavoto</span>
+                                                    <input type="number" class="form-control" placeholder="" id="fantamedia_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xl-4 col-lg-12">
+                                            <div style="margin-top: 4rem;">
+      
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Goal fatti</span>
+                                                    <input type="number" class="form-control" placeholder="" id="goal_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Goal subiti</span>
+                                                    <input type="number" class="form-control" placeholder="" id="goalsubiti_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Rigori parati</span>
+                                                    <input type="number" class="form-control" placeholder="" id="rigoriparati_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Rigori calciati</span>
+                                                    <input type="number" class="form-control" placeholder="" id="rigoricalciati_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Rigori segnati</span>
+                                                    <input type="number" class="form-control" placeholder="" id="rigorisegnati_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Rigori sbagliati</span>
+                                                    <input type="number" class="form-control" placeholder="" id="rigorisbagliati_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                  <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Assist</span>
+                                                    <input type="number" class="form-control" placeholder="" id="assist_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                  <br>
+                                                  <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Ammonizioni</span>
+                                                    <input type="number" class="form-control" placeholder="" id="ammonizioni_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Espulsioni</span>
+                                                    <input type="number" class="form-control" placeholder="" id="espulsioni_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                <br>
+                                                <div class="input-group flex-nowrap">
+                                                    <span class="input-group-text" id="addon-wrapping">Autogoal</span>
+                                                    <input type="number" class="form-control" placeholder="" id="autogoal_mod" aria-describedby="addon-wrapping">
+                                                  </div>
+                                                
+                            
+                                            </div>
+                                        </div>
+                                     
+                                            
+                                        </div>
+                                    </div>
+                            </div>
+                
+                            
+                        </div>
+
+                    </div></div>
+
+                    </div>
+
+                   
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script>
+        function inserisciFunction(){
+
+            document.getElementById("query_inserisci").style.display="block";
+            document.getElementById("btn_inserisci").classList.add("btnqueryactive");
+
+            document.getElementById("query_cerca").style.display="none";
+            document.getElementById("btn_cerca").classList.remove("btnqueryactive");
+            document.getElementById("query_modifica").style.display="none";
+            document.getElementById("btn_modifica").classList.remove("btnqueryactive");
+        }
+
+        function cercaFunction(){
+            document.getElementById("query_cerca").style.display="block";
+            document.getElementById("btn_cerca").classList.add("btnqueryactive");
+
+            document.getElementById("query_inserisci").style.display="none";
+            document.getElementById("btn_inserisci").classList.remove("btnqueryactive");
+            document.getElementById("query_modifica").style.display="none";
+            document.getElementById("btn_modifica").classList.remove("btnqueryactive");
+          
+        }
+
+
+
+        function modificaFunction(){
+        document.getElementById("query_modifica").style.display="block";
+        document.getElementById("btn_modifica").classList.add("btnqueryactive");
+
+        document.getElementById("query_inserisci").style.display="none";
+        document.getElementById("btn_inserisci").classList.remove("btnqueryactive");
+        document.getElementById("query_cerca").style.display="none";
+        document.getElementById("btn_cerca").classList.remove("btnqueryactive");
+
+        }
+
+
+        $(document).ready(function(){
+
+           
+            const select = document.getElementById('player');
+            const select2= document.getElementById('player_modifica');
+            $.ajax({
+                url: 'http://localhost:8000/test/Allplayer',
+                method: 'GET',
+                success: function(data) {
+                   
+                    data.forEach(opzione => {
+                    var option = document.createElement('option');
+                    var option2 =document.createElement('option');
+                    option.value = opzione.Cognome;
+                    option2.value = opzione.Cognome;
+                    option.textContent = opzione.Nome;
+                    option2.textContent = opzione.Nome;
+                    select.appendChild(option);
+                    select2.appendChild(option2);
+
+
+                });
+                
+
+                getPlayer();
+                getPlayer2();
+                
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        });   
+
+        function getPlayer(){
+            const select = document.getElementById('player_modifica');
+                var nomeCompleto=$('#player option:selected').text()
+                const selectedValue = select.value;
+
+            $.ajax({
+                        url: 'http://localhost:8000/test/GetAllPlayer?cognome='+selectedValue,
+                        method: 'GET',
+                        success: function(data2) {
+                       document.getElementById("foto_mod").src=data2[0].Foto;
+                       document.getElementById("cognome_mod").innerHTML=data2[0].Cognome;                
+                       document.getElementById("nome_mod2").innerHTML=data2[0].NomeCompl;
+                       document.getElementById("squadra_mod").value=data2[0].Squadra;
+                       document.getElementById("ruolo_mod").value=data2[0].Ruolo;
+                       document.getElementById("ruolimantra_mod").value=data2[0].RuoloMantra;
+                       document.getElementById("piede_mod").value=data2[0].Piede;
+                       document.getElementById("nazionalita_mod").value=data2[0].Nazionalità;
+                       var nascita=data2[0].DataNascita.split(" ");
+                       document.getElementById("annonascita_mod").value=nascita[0];
+                       document.getElementById("giocate_mod").value=data2[0].PartiteGiocate;
+                       document.getElementById("quotiniz_mod").value=data2[0].QuotazioneIniziale;
+                       document.getElementById("quotatt_mod").value=data2[0].QuotazioneAttuale;
+                       document.getElementById("voto_mod").value=data2[0].MediaVoto;
+                       document.getElementById("fantamedia_mod").value=data2[0].MediaFantavoto;
+                       document.getElementById("goal_mod").value=data2[0].GoalFatti;
+                        document.getElementById("goalsubiti_mod").value=data2[0].GoalSubiti;
+                        document.getElementById("rigoriparati_mod").value=data2[0].RigoriParati;
+                        document.getElementById("rigoricalciati_mod").value=data2[0].RigoriCalciati;
+                        document.getElementById("rigorisegnati_mod").value=data2[0].RigoriSegnati;
+                        document.getElementById("rigorisbagliati_mod").value=data2[0].RigoriSbagliati;
+                        document.getElementById("assist_mod").value=data2[0].Assist;
+                        document.getElementById("ammonizioni_mod").value=data2[0].Ammonizioni;
+                        document.getElementById("espulsioni_mod").value=data2[0].Espulsioni;
+                        document.getElementById("autogoal_mod").value=data2[0].Autogoal;
+                        document.getElementById("btn_update").style.display="block";
+                        document.getElementById("btn_delete").style.display="block";
+                        document.getElementById("btn_cancel").style.display="block";
+                            
+                        },
+                        error: function(error) {
+                            console.error('Error:', error);
+                        }
+                    });
+        }
+
+
+        //evento per modifica
+        document.addEventListener('DOMContentLoaded', () => {
+            const select = document.getElementById('player_modifica');
+            // Aggiungi un event listener per l'evento 'change'
+            select.addEventListener('change', () => {
+                getPlayer()
+            });
+
+        });
+
+
+        function getPlayer2(){
+            const select = document.getElementById('player');
+                var nomeCompleto=$('#player option:selected').text()
+                const selectedValue = select.value;
+            
+
+            $.ajax({
+                        url: 'http://localhost:8000/test/GetAllPlayer?cognome='+selectedValue,
+                        method: 'GET',
+                        success: function(data2) {
+        
+                       document.getElementById("foto_top_scorer").src=data2[0].Foto;
+                       
+
+                       document.getElementById("squadra_top_scorer").innerHTML='SQUADRA: '+data2[0].Squadra;
+                    
+                       document.getElementById("giocate_top_scorer").innerHTML='PARTITE GIOCATE: '+data2[0].PartiteGiocate;
+                       document.getElementById("quotazioneIn").innerHTML='QUOTAZIONE INIZIALE: '+data2[0].QuotazioneIniziale;
+                       document.getElementById("quotazioneAtt").innerHTML='QUOTAZIONE ATTUALE: '+data2[0].QuotazioneAttuale;
+                       document.getElementById("media").innerHTML='MEDIA: '+data2[0].MediaVoto;
+                       document.getElementById("fantamedia").innerHTML='FANTAMEDIA: '+data2[0].MediaFantavoto;
+                       
+                       document.getElementById("goal_top_scorer").innerHTML='GOAL FATTI: '+data2[0].GoalFatti;
+
+                        document.getElementById("rigori_calciati_top_scorer").innerHTML='RIGORI CALCIATI: '+data2[0].RigoriCalciati;
+                        document.getElementById("rigori_segnati_top_scorer").innerHTML='RIGORI SEGNATI: '+data2[0].RigoriSegnati;
+                        document.getElementById("assist_top_scorer").innerHTML='ASSIST: '+data2[0].Assist;
+                        document.getElementById("ammonizioni_top_scorer").innerHTML='AMMONIZIONI: '+data2[0].Ammonizioni;
+                        document.getElementById("espulsioni_top_scorer").innerHTML='ESPULSIONI: '+data2[0].Espulsioni;
+            
+                        },
+                        error: function(error) {
+                            console.error('Error:', error);
+                        }
+                    });
+        }
+
+
+        //evento per cercare
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const select = document.getElementById('player');
+
+            // Aggiungi un event listener per l'evento 'change'
+            select.addEventListener('change', () => {
+
+              getPlayer2();
+
+            });
+
+
+        });
+
+
+       function ripristinaPlayer(){
+
+        const select = document.getElementById('player_modifica');
+        const selectedValue = select.value;
+        var nomeCompleto=$('#player option:selected').text()
+
+    $.ajax({
+            url: 'http://localhost:8000/test/GetAllPlayer?cognome='+selectedValue,
+            method: 'GET',
+            success: function(data2) {
+   
+           document.getElementById("foto_mod").src=data2[0].Foto;
+           document.getElementById("cognome_mod").innerHTML=data2[0].Cognome;
+           document.getElementById("nome_mod2").innerHTML=data2[0].NomeCompl;
+
+           document.getElementById("squadra_mod").value=data2[0].Squadra;
+           document.getElementById("ruolo_mod").value=data2[0].Ruolo;
+           document.getElementById("ruolimantra_mod").value=data2[0].RuoloMantra;
+           document.getElementById("piede_mod").value=data2[0].Piede;
+           document.getElementById("nazionalita_mod").value=data2[0].Nazionalità;
+           var nascita=data2[0].DataNascita.split(" ");
+           document.getElementById("annonascita_mod").value=nascita[0];
+           document.getElementById("giocate_mod").value=data2[0].PartiteGiocate;
+           document.getElementById("quotiniz_mod").value=data2[0].QuotazioneIniziale;
+           document.getElementById("quotatt_mod").value=data2[0].QuotazioneAttuale;
+           document.getElementById("voto_mod").value=data2[0].MediaVoto;
+           document.getElementById("fantamedia_mod").value=data2[0].MediaFantavoto;
+           
+           document.getElementById("goal_mod").value=data2[0].GoalFatti;
+            document.getElementById("goalsubiti_mod").value=data2[0].GoalSubiti;
+            document.getElementById("rigoriparati_mod").value=data2[0].RigoriParati;
+            document.getElementById("rigoricalciati_mod").value=data2[0].RigoriCalciati;
+            document.getElementById("rigorisegnati_mod").value=data2[0].RigoriSegnati;
+            document.getElementById("rigorisbagliati_mod").value=data2[0].RigoriSbagliati;
+            document.getElementById("assist_mod").value=data2[0].Assist;
+            document.getElementById("ammonizioni_mod").value=data2[0].Ammonizioni;
+            document.getElementById("espulsioni_mod").value=data2[0].Espulsioni;
+            document.getElementById("autogoal_mod").value=data2[0].Autogoal;
+
+    
+                
+            },
+            error: function(error) {
+                console.error('Error:', error);
+            }
+        });
+
+       }
+
+       function updatePlayer(){
+
+        let player = {
+            'Cognome': document.getElementById("cognome_mod").textContent,
+            'Nome Completo': document.getElementById("nome_mod2").textContent,
+            'Ruolo':  document.getElementById("ruolo_mod").value,
+            'Ruoli Mantra':  document.getElementById("ruolimantra_mod").value,
+            'Quotazione Attuale':  Number(document.getElementById("quotatt_mod").value),
+            'Quotazione Iniziale':  Number(document.getElementById("quotiniz_mod").value),
+            'Squadra': document.getElementById("squadra_mod").value,
+            'Piede': document.getElementById("piede_mod").value,
+            'Nazionalità': document.getElementById("nazionalita_mod").value,
+            'Data Nascita':  document.getElementById("annonascita_mod").value+" 00:00:00",
+            'Media Voto':  Number(document.getElementById("voto_mod").value),
+            'Media Fantavoto':  Number(document.getElementById("fantamedia_mod").value),
+
+            'Partite Giocate': Number(document.getElementById("giocate_mod").value),
+            'Goal Fatti': Number(document.getElementById("goal_mod").value),
+            'Goal Subiti': Number(document.getElementById("goalsubiti_mod").value),
+            'Rigori Parati': Number(document.getElementById("rigoriparati_mod").value),
+            'Rigori Calciati': Number(document.getElementById("rigoricalciati_mod").value),
+            'Rigori Segnati': Number(document.getElementById("rigorisegnati_mod").value),
+            'Rigori Sbagliati': Number(document.getElementById("rigorisbagliati_mod").value),
+            'Assist': Number(document.getElementById("assist_mod").value),
+            'Ammonizioni': Number(document.getElementById("ammonizioni_mod").value),
+            'Espulsioni': Number(document.getElementById("espulsioni_mod").value),
+            'Autogoal': Number(document.getElementById("autogoal_mod").value)
+
+            };
+
+
+            let json = JSON.stringify(player);
+   
+
+            fetch('http://localhost:8000/test/UpdatePlayer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(json)
+            })
+            .then(response => response.json())
+            .then(json => {
+                
+               
+                    var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop6'));
+                    myModal.show();
+                
+
+            })
+            .catch((error) => {
+                alert('Error sending data');
+            });
+
+       }
+
+       function deletePlayer(){
+        selectedValue=document.getElementById("cognome_mod").textContent
+
+    $.ajax({
+            url: 'http://localhost:8000/test/DeletePlayer?cognome='+selectedValue,
+            method: 'GET',
+            success: function(data2) {
+                var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop6'));
+                myModal.show();
+     
+                
+            },
+            error: function(error) {
+                console.error('Error:', error);
+            }
+        });
+       }
+
+       function addPlayer(){
+
+        var element=[];
+
+        for(const el of document.getElementById('form').querySelectorAll('[required]')){
+            element.push(el);
+        }
+        for(const el2 of document.getElementById('form2').querySelectorAll('[required]')){
+            element.push(el2);
+        }
+
+        var value=0;
+
+        for(x of element){
+            x.style.borderColor="#d1d3e2";
+            
+            if(!x.reportValidity()){
+                x.style.borderColor="red";
+
+            }else{
+             value++;
+        }
+            }
+
+            
+
+            if(value==element.length){
+                var cognome=document.getElementById("cognome_add").value
+                var nome=document.getElementById("nome_add").value
+
+                var cognome2=cognome.charAt(0).toUpperCase()+ cognome.slice(1).toLowerCase();
+                var nome2=nome.charAt(0).toUpperCase()+ nome.slice(1).toLowerCase();
+                    let player = {
+                        'Cognome': cognome2,
+                        'Nome Completo': cognome2+" "+nome2,
+                        'Ruolo':  document.getElementById("ruolo_add").value,
+                        'Ruoli Mantra':  document.getElementById("ruolimantra_add").value,
+                        'Quotazione Attuale':  Number(document.getElementById("quotatt_add").value),
+                        'Quotazione Iniziale':  Number(document.getElementById("quotiniz_add").value),
+                        'Squadra': document.getElementById("squadra_add").value,
+                        'Piede': document.getElementById("piede_add").value,
+                        'Nazionalità': document.getElementById("nazionalita_add").value,
+                        'Data Nascita':  document.getElementById("annonascita_add").value+" 00:00:00",
+                        'Media Voto':  Number(document.getElementById("voto_add").value),
+                        'Media Fantavoto':  Number(document.getElementById("fantamedia_add").value),
+                        'Foto':"https://content.fantacalcio.it/web/campioncini/card2021/NO-CAMPIONCINO.png?v=56",
+
+                        'Partite Giocate': Number(document.getElementById("giocate_add").value),
+                        'Goal Fatti': Number(document.getElementById("goal_add").value),
+                        'Goal Subiti': Number(document.getElementById("goalsubiti_add").value),
+                        'Rigori Parati': Number(document.getElementById("rigoriparati_add").value),
+                        'Rigori Calciati': Number(document.getElementById("rigoricalciati_add").value),
+                        'Rigori Segnati': Number(document.getElementById("rigorisegnati_add").value),
+                        'Rigori Sbagliati': Number(document.getElementById("rigorisbagliati_add").value),
+                        'Assist': Number(document.getElementById("assist_add").value),
+                        'Ammonizioni': Number(document.getElementById("ammonizioni_add").value),
+                        'Espulsioni': Number(document.getElementById("espulsioni_add").value),
+                        'Autogoal': Number(document.getElementById("autogoal_add").value)
+                };
+
+            let json = JSON.stringify(player);
+
+
+            fetch('http://localhost:8000/test/AddPlayer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(json)
+            })
+            .then(response => response.json())
+            .then(json => {
+         
+                var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop6'));
+                myModal.show();
+       
+            })
+            .catch((error) => {
+                alert('Error sending data');
+            });
+            }
+
+       
+
+       }
+
+
+       function canc(){
+
+            document.getElementById("nome_add").value="",
+            document.getElementById("cognome_add").value="",
+            document.getElementById("cognome_add").value="",
+            document.getElementById("ruolo_add").value="",
+            document.getElementById("ruolimantra_add").value="",
+            document.getElementById("quotatt_add").value="",
+            document.getElementById("quotiniz_add").value="",
+            document.getElementById("squadra_add").value="",
+            document.getElementById("piede_add").value="",
+            document.getElementById("nazionalita_add").value="",
+            document.getElementById("annonascita_add").value="",
+            document.getElementById("voto_add").value=0,
+            document.getElementById("fantamedia_add").value=0,
+
+            document.getElementById("giocate_add").value=0,
+            document.getElementById("goal_add").value=0,
+            document.getElementById("goalsubiti_add").value=0,
+            document.getElementById("rigoriparati_add").value=0,
+            document.getElementById("rigoricalciati_add").value=0,
+            document.getElementById("rigorisegnati_add").value=0,
+            document.getElementById("rigorisbagliati_add").value=0,
+            document.getElementById("assist_add").value=0,
+            document.getElementById("ammonizioni_add").value=0,
+            document.getElementById("espulsioni_add").value=0,
+            document.getElementById("autogoal_add").value=0
+
+
+       }
+
+
+ 
+    
+    </script>
+
+</body>
+
+
+</html>

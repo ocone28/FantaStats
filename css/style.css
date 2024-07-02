@@ -1,0 +1,26 @@
+.btnquery{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid;
+    margin: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btnqueryactive{
+    background: #274fc2d9;
+    color: white;
+    border: 1px solid white;
+}
+
+.label_mod{
+    display: flex;
+}
+
+.form-control{
+    left: -5px;
+}
+
+.error_input {
+    border: 5px solid red;
+  }

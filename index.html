@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="img/futbol-regular.svg" >
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://kit.fontawesome.com/28e6bce35c.js" crossorigin="anonymous"></script>
+
+    <title>FantaStats</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+   
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fa-regular fa-futbol"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">FantaStats<sup>2.0</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+        
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="querys.html">
+                    <i class="fas fa-fw fa-clipboard-question"></i>
+                    <span>Querys</span></a>
+            </li>
+
+           
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Database</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="stats.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Stats Players</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                  
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        
+    
+                  
+
+                
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Report -->
+                    <!-- Page Heading -->
+                   
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Players analyzed</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="n_player"></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Top Fantamedia Team</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="fantamedia"></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Players Fantavoto >= 6
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="fantamediaGTE6"></div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar" id="progress_bar_player"
+                                                            aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Players Growed Up Price</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="growup_price"></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Top 5 player growed up price</h6>
+                                    
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myChart" style="padding-bottom: 30px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Players Distribution</h6>
+                                    
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Portieri
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Difensori
+                                        </span>
+                                        <br>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Centrocampisti
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-danger"></i> Attaccanti
+                                        </span>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        
+
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary" id="cognome_top_scorer"></h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;float: left;"
+                                            id="foto_top_scorer" >
+                                    </div>
+                                    <div style="margin-top: 3rem;width: 40%;float: right;">
+                                        <h6 style="font-weight: bold" id="squadra_top_scorer"></h6>
+                                        <h6 style="font-weight: bold" id="giocate_top_scorer"></h6>
+                                        <h6 style="font-weight: bold" id="goal_top_scorer"></h6>
+                                        <h6 style="font-weight: bold" id="rigori_calciati_top_scorer"></h6>
+                                        <h6 style="font-weight: bold" id="rigori_segnati_top_scorer"></h6>
+                                        <h6 style="font-weight: bold" id="assist_top_scorer"></h6>
+                                        <h6 style="font-weight: bold" id="ammonizioni_top_scorer"></h6>
+                                        <h6 style="font-weight: bold" id="espulsioni_top_scorer"></h6>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                          
+
+                        </div>
+
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Project Card Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary" id="tot_penaltys"></h6>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold" >Rigori Segnati <span
+                                            class="float-right" id="rig_segnati"></span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-success" role="progressbar" id="progress_bar_rig_seg"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold" >Rigori Sbagliati <span
+                                            class="float-right" id="rig_sbagliati" ></span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger bg-warning" role="progressbar" id="progress_bar_rig_sba"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold" >Rigori Parati <span
+                                            class="float-right" id="rig_parati" ></span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" role="progressbar" id="progress_bar_rig_par"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; FantaStats<sup>2.0</sup> 2024</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+
+
+ 
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+    
+
+
+    <script>
+
+$(document).ready(function(){
+    $.ajax({
+                url: 'http://localhost:8000/test/NumberPlayer',
+                method: 'GET',
+                success: function(data) {
+                    document.getElementById("n_player").innerHTML=data;
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+
+            $.ajax({
+                url: 'http://localhost:8000/test/AverageForTeam',
+                method: 'GET',
+                success: function(data) {
+                    document.getElementById("fantamedia").innerHTML=data[0].Squadra+" "+data[0].Media.toFixed(2);
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+
+            $.ajax({
+                url: 'http://localhost:8000/test/NumPlayerAvgGTE6',
+                method: 'GET',
+                success: function(data) {
+                    document.getElementById("fantamediaGTE6").innerHTML=data;
+                    var n=document.getElementById("n_player").innerText;
+                  
+                    var val=data*100/n;
+                    document.getElementById("progress_bar_player").style.width=val.toFixed(0)+"%"
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+
+            $.ajax({
+                url: 'http://localhost:8000/test/NumPlayerGrowupPrice',
+                method: 'GET',
+                success: function(data) {
+                    document.getElementById("growup_price").innerHTML=data;
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+
+            $.ajax({
+                url: 'http://localhost:8000/test/PlayerTopScorer',
+                method: 'GET',
+                success: function(data) {
+             
+                    document.getElementById("cognome_top_scorer").innerHTML='Top Scorer: '+data[0].Cognome;
+                    document.getElementById("squadra_top_scorer").innerHTML='SQUADRA: '+data[0].Squadra;
+                    document.getElementById("giocate_top_scorer").innerHTML='PARTITE GIOCATE: '+data[0].PartiteGiocate;
+                    document.getElementById("goal_top_scorer").innerHTML='GOAL FATTI: '+data[0].GoalFatti;
+
+                    document.getElementById("rigori_calciati_top_scorer").innerHTML='RIGORI CALCIATI: '+data[0].RigoriCalciati;
+                    document.getElementById("rigori_segnati_top_scorer").innerHTML='RIGORI SEGNATI: '+data[0].RigoriSegnati;
+                    document.getElementById("assist_top_scorer").innerHTML='ASSIST: '+data[0].Assist;
+                    document.getElementById("ammonizioni_top_scorer").innerHTML='AMMONIZIONI: '+data[0].Ammonizioni;
+                    document.getElementById("espulsioni_top_scorer").innerHTML='ESPULSIONI: '+data[0].Espulisioni;
+
+                            $.ajax({
+                        url: 'http://localhost:8000/test/GetPlayer?cognome='+data[0].Cognome,
+                        method: 'GET',
+                        success: function(data2) {
+                            
+                            document.getElementById("foto_top_scorer").src=data2[0].Foto;
+                            
+                        },
+                        error: function(error) {
+                            console.error('Error:', error);
+                        }
+                    });
+            
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+            
+            $.ajax({
+                url: 'http://localhost:8000/test/GetStatsPenaltys',
+                method: 'GET',
+                success: function(data) {
+                    document.getElementById("rig_segnati").innerHTML=data[0].RigSegnati;
+                    document.getElementById("rig_parati").innerHTML=data[0].RigParati;
+                    document.getElementById("rig_sbagliati").innerHTML=data[0].RigSbagliati;
+                    document.getElementById("tot_penaltys").innerHTML="Penalty Assigned: "+data[0].RigCalciati;
+                
+                    var per_par=data[0].RigParati*100/data[0].RigCalciati;
+                    var per_sba=data[0].RigSbagliati*100/data[0].RigCalciati;
+                    var per_seg=data[0].RigSegnati*100/data[0].RigCalciati;
+
+                     document.getElementById("progress_bar_rig_par").style.width=per_par.toFixed(0)+"%"
+                     document.getElementById("progress_bar_rig_sba").style.width=per_sba.toFixed(0)+"%"
+                     document.getElementById("progress_bar_rig_seg").style.width=per_seg.toFixed(0)+"%"
+                    
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+
+ 
+
+            $(document).ready(function() {
+            $.ajax({
+                url: 'http://localhost:8000/test/Get5PlayerUpPrice', // Modifica questo URL con il tuo endpoint API
+                method: 'GET',
+                success: function(data2) {
+       
+                    const arr =[];
+                    const arr2 =[];
+                    const arr3 =[];
+                    const arr4 =[];
+
+                    data2.forEach(function(item) {
+                        arr.push(item.Cognome);
+                        arr2.push(item.ValoreIniziale);
+                        arr3.push(item.ValoreAttuale);
+                        arr4.push(item.IncrementoValore);
+                    });
+
+                        const data = {
+                        labels: arr,
+                        datasets: [
+                            {
+                            label: "Quotazione Iniziale",
+                            backgroundColor: "#0353a4",
+                            data: arr2,
+                            },
+                            {
+                            label: "Quotazione Attuale",
+                            backgroundColor: "#ff8552",
+                            data: arr3,
+                            },
+                            {
+                            label: "Incremento",
+                            backgroundColor: "#32cd32",
+                            data: arr4,
+                            }
+                        ]
+                        };
+
+                        const options = {
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                        title:{
+                                            display:true,
+                                            text:"Players"
+                                        },
+                                    },
+                                    y: {
+                                        stacked: true,
+                                        min:50,
+                                    }
+                            }
+                        };
+                        const ctx = document.getElementById("myChart").getContext("2d");
+                        const chart = new Chart(ctx, {
+                        // The type of chart we want to create
+                        type: "bar",
+                        // The data for our dataset
+                        data: data,
+                        // Configuration options go here
+                        options: options
+                        });
+
+                   
+            
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+
+});
+
+    </script>
+
+</body>
+
+</html>
