@@ -8,5 +8,4 @@ db = client['Fantacalcio']
 # Accesso a una collezione
 collection = db['Calciatori']
 
-
 collection2 = db['Statistiche']

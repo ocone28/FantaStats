@@ -24,3 +24,7 @@
 .error_input {
     border: 5px solid red;
   }
+
+  .sidebar.toggled #logo{
+    padding: 10px;
+  }
